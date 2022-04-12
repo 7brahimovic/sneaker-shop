@@ -1,34 +1,32 @@
 import React from 'react';
 
-import GIRLS_DATA from './girls.data.js';
-import CollectionPreview from '../../components/collection-preview/collection-preview.component';
 import rape from '../../asset/rape.mp4'
 import './girls.styles.scss';
+import { ProductsContext } from '../../contexts/products.context.jsx';
+import { useContext } from 'react';
+import CollectionItem from '../../components/collection-item/collection-item.component.jsx';
 
-class GirlsPage extends React.Component {
-    constructor(props) {
-        super(props);
+function GirlsPage() {
+    const { products } = useContext(ProductsContext);
 
-        this.state = {
-            collections: GIRLS_DATA
 
-        }
-    }
+    return (
+        <div className='girl-page'>
 
-    render() {
-        const { collections } = this.state;
-        return (<div className='girl-page'>
-            {
-                collections.map(({ id, ...otherCollectionProps }) => (
-                    <CollectionPreview key={id} {...otherCollectionProps} />
+            <div className='collection-preview'>
+
+                {products.map((product) => (
+                    <CollectionItem key={product.id} collection={product} />
                 ))
-            }
-            <video className='videoTag' autoPlay loop muted>
+                }
+            </div>
+            {/* <CollectionPreview collections={products}/> */}
+            {/* <video className='videoTag' autoPlay loop muted>
                 <source src={rape} type='video/mp4' />
-            </video>
+            </video> */}
         </div>
-        )
-    }
+    )
+
 }
 
 export default GirlsPage;

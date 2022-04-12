@@ -4,26 +4,37 @@ const SexCtrl = require('../controllers/sex-ctrl')
 
 const router = express.Router()
 const MongoClient = require('mongodb').MongoClient;
+const url = 'mongodb://localhost:27017';
+const client = new MongoClient(url, { useNewUrlParser: true });
+client.connect()
+  .then((connectedClient) => {
+    console.log('mongodb is connected');
+  })
+  .catch(error => {
+    console.error(error);
+  });
 
 router.get('/mongo', function (req, res, next) {
-  const url = 'mongodb://localhost:27017';
+  res.json({
+    isConnected: 'ddd',
+  });
+});
+router.post('/api/echo', function (req, res, next) {
+  const body = req.body;
 
-  const dbName = 'myproject';
+  const worker = (async function (data) {
+    const db = client.db(dbName);
+    const collection = db.collection('echo');
+    const result = await collection.insertOne(data);
+    console.log(result);
+    return result;
+  })(body);
 
-  const client = new MongoClient(url, {useNewUrlParser: true});
-
-  client.connect()
-    .then(() => {
-      res.json({
-        isConnected: true,
-      });
-    })
-    .catch(error => {
-      console.error(error);
-      res.json({
-        isConnected: false,
-      });
-    });
+  // 回應
+  worker.then(() => {
+    res.json(body);
+  })
+    .catch(next); // 發生 error 的話，next() 交給之後的 middleware 處理，express 有預設的處理方法
 });
 
 router.post('/sex', SexCtrl.createSex)

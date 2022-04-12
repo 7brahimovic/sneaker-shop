@@ -5,21 +5,17 @@ import './App.css';
 import Header from './components/header/header.component.jsx';
 
 import HomePage from './pages/homepage/homepage.component';
-import GirlsPage from './pages/girls/girls.component.jsx';
-
-const MiyukiPage = () => (
-  <div>
-    <h1>MIYUKI PAGE</h1>
-  </div>
-);
-
+import GirlsPage from './pages/girls/girls.component';
+import Authentication from './pages/authentication/authentication.component';
+import Shop from './pages/shop/shop.component';
 function App() {
   return (
     <div >
-      <Header/>
+      <Header />
       <Routes>
-      <Route exact path='/' element={<HomePage/>} />
-      <Route path='/girls' element={<GirlsPage/>} />
+        <Route exact path='/' element={<HomePage />} />
+        <Route path='/girls' element={<GirlsPage />} />
+        <Route path='/authentication' element={<Authentication />} />
       </Routes>
     </div>
 

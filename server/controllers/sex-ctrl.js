@@ -9,6 +9,7 @@ createSex = (req, res) => {
             error: 'You must provide a sex',
         })
     }
+    console.log(req.body)
 
     const sex = new Sex(body)
 

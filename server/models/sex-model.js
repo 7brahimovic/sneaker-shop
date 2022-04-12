@@ -10,4 +10,4 @@ const Sex = new Schema(
     { timestamps: true },
 )
 
-module.exports = mongoose.model('sexs', Sex)
+module.exports = mongoose.model('sexes', Sex)
