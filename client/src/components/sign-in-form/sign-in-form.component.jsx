@@ -12,6 +12,7 @@ import {
 import './sign-in-form.styles.scss';
 import { UserContext } from '../../contexts/user.context';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 const defaultFormFields = {
     email: '',
     password: '',
@@ -21,8 +22,7 @@ function SignInForm() {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
 
-    const { setCurrentUser } = useContext(UserContext)
-
+    let navigate = useNavigate();
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     };
@@ -32,6 +32,8 @@ function SignInForm() {
         await createUserDocumentFromAuth(user);
 
         resetFormFields();
+        navigate('/');
+
     };
 
     const handleSubmit = async (event) => {
@@ -44,8 +46,8 @@ function SignInForm() {
             );
             console.log(user)
             resetFormFields();
-            setCurrentUser(user);
-
+            navigate('/');
+            // setCurrentUser(user);
         } catch (error) {
             switch (error.code) {
                 case 'auth/wrong-password':

@@ -10,7 +10,16 @@ import {
     signOut,
     onAuthStateChanged,
 } from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    collection,
+    writeBatch,
+    query,
+    getDocs
+} from 'firebase/firestore'
 import { async } from '@firebase/util';
 const firebaseConfig = {
     apiKey: "AIzaSyBX8WwxQcFf9drOm78UcSEg7riICdc6bHk",
@@ -32,6 +41,37 @@ export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
 export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 export const db = getFirestore();
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd, field) => {
+    const collectionRef = collection(db, collectionKey);
+    const batch = writeBatch(db);
+
+    objectsToAdd.forEach(element => {
+        const docRef = doc(collectionRef, element.title.toLowerCase());
+        batch.set(docRef, element);
+    });
+
+    await batch.commit();
+    console.log('done')
+}
+export const getCategoriesAndDocuments = async () => {
+    const collectionRef = collection(db, 'collections');
+    const q = query(collectionRef);
+
+    const querySnapshot = await getDocs(q);
+    const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+        const { title, items } = docSnapshot.data();
+        acc[title.toLowerCase()] = items;
+        return acc;
+    }, {});
+
+    return categoryMap;
+
+
+
+    // return querySnapshot.docs.map((docSnapshot) => docSnapshot.data())
+
+
+}
 
 export const createUserDocumentFromAuth = async (
     userAuth,
@@ -41,16 +81,12 @@ export const createUserDocumentFromAuth = async (
         return;
     const userDocRef = doc(db, 'users', userAuth.uid);
 
-    console.log(userDocRef);
-
     const userSnapshot = await getDoc(userDocRef);
 
     if (!userSnapshot.exists()) {
         const { displayName, email } = userAuth;
         const createdAt = new Date();
 
-        console.log(displayName)
-        console.log(email)
         try {
             await setDoc(userDocRef, {
                 displayName,

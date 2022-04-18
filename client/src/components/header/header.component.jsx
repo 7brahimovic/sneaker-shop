@@ -4,30 +4,41 @@ import { Link, Outlet } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../asset/crown.svg';
 import rape from '../../asset/rape.mp4'
 import { UserContext } from '../../contexts/user.context';
-import './header.styles.scss';
+// import './header.styles.scss';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
 import { CartContext } from '../../contexts/cart.context';
+import {
+    NavigationContainer,
+    LogoContainer,
+    NavLinks,
+    NavLink,
+  } from './header.styles';
+  import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../store/user/user.selector';
 function Header() {
-    const { currentUser, setCurrentUser } = useContext(UserContext)
+    const currentUser = useSelector(selectCurrentUser)
+    console.log(currentUser)
+    // const { currentUser } = useContext(UserContext)
     const signOutHandler = async () => {
         await signOutUser();
-        setCurrentUser(null);
+        // setCurrentUser(null);
     };
     const { isCartOpen } = useContext(CartContext);
     return (
         <Fragment>
-            <div className="header">
-                <Link className='logo-container' to='/'>
+            <NavigationContainer>
+                <LogoContainer to='/'>
                     <video className='videoTag' autoPlay loop muted>
                         <source src={rape} type='video/mp4' />
                     </video>
-                </Link>
-                <div className="options">
-                    <Link className='option' to='/girls'>
+                </LogoContainer>
+                <NavLinks>
+                    <NavLink to='/girls'>
                         SHOP
-                    </Link>
+                    </NavLink>
                     {currentUser ? (
                         <div>
                             Hello! {currentUser.displayName}
@@ -36,20 +47,56 @@ function Header() {
                     }
                     {currentUser ? (
 
-                        <span className='option' onClick={signOutHandler}>
+                        <NavLink as='span' className='option' onClick={signOutHandler}>
                             SIGN OUT
-                        </span>
+                        </NavLink>
                     ) : (
-                        <Link className='option' to='/authentication'>
+                        <NavLink to='/authentication'>
                             SIGN IN
-                        </Link>
+                        </NavLink>
                     )}
                     <CartIcon/>
-                </div>
+                </NavLinks>
                 {isCartOpen && <CartDropdown/>}
-            </div>
+            </NavigationContainer>
             <Outlet/>
         </Fragment>
+
+
+
+        // <Fragment>
+        //     <div className="header">
+        //         <Link className='logo-container' to='/'>
+        //             <video className='videoTag' autoPlay loop muted>
+        //                 <source src={rape} type='video/mp4' />
+        //             </video>
+        //         </Link>
+        //         <div className="options">
+        //             <Link className='option' to='/girls'>
+        //                 SHOP
+        //             </Link>
+        //             {currentUser ? (
+        //                 <div>
+        //                     Hello! {currentUser.displayName}
+        //                 </div>
+        //             ) : ('')
+        //             }
+        //             {currentUser ? (
+
+        //                 <span className='option' onClick={signOutHandler}>
+        //                     SIGN OUT
+        //                 </span>
+        //             ) : (
+        //                 <Link className='option' to='/authentication'>
+        //                     SIGN IN
+        //                 </Link>
+        //             )}
+        //             <CartIcon/>
+        //         </div>
+        //         {isCartOpen && <CartDropdown/>}
+        //     </div>
+        //     <Outlet/>
+        // </Fragment>
 
     )
 }

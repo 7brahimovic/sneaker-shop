@@ -1,32 +1,40 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import rape from '../../asset/rape.mp4'
 import './girls.styles.scss';
-import { ProductsContext } from '../../contexts/products.context.jsx';
+import { ProductsContext } from '../../contexts/categories.context.jsx';
 import { useContext } from 'react';
 import CollectionItem from '../../components/collection-item/collection-item.component.jsx';
+import { Routes, Route, Link } from 'react-router-dom';
 
-function GirlsPage() {
-    const { products } = useContext(ProductsContext);
+import CategoriesPreview from '../categories-preview/categories-preview.component';
+import Category from '../category/category.component';
+import { useEffect } from 'react';
+import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils';
+import { useDispatch } from 'react-redux';
+import { setCategoriesMap } from '../../store/categories/categories.action';
 
 
+function GirlsShop() {
+    const dispatch = useDispatch();
+
+    console.log('redrendering')
+    useEffect(() => {
+        console.log('effect fired')
+        const getCategoriesMap = async () => {
+          const categoryMap = await getCategoriesAndDocuments();
+          dispatch(setCategoriesMap(categoryMap))
+        };
+        
+        getCategoriesMap();
+      }, [dispatch]);
+      
     return (
-        <div className='girl-page'>
-
-            <div className='collection-preview'>
-
-                {products.map((product) => (
-                    <CollectionItem key={product.id} collection={product} />
-                ))
-                }
-            </div>
-            {/* <CollectionPreview collections={products}/> */}
-            {/* <video className='videoTag' autoPlay loop muted>
-                <source src={rape} type='video/mp4' />
-            </video> */}
-        </div>
+        <Routes>
+            <Route index element={<CategoriesPreview />} />
+            <Route path=':category' element={<Category/>} />
+        </Routes>
     )
-
 }
 
-export default GirlsPage;
+export default GirlsShop;

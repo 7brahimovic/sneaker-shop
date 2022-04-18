@@ -4,19 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { UserProvider } from './contexts/user.context';
-import { ProductsProvider } from './contexts/products.context';
+import { CategoriesProvider } from './contexts/categories.context';
 import { CartProvider } from './contexts/cart.context';
+import { store } from './store/store'
 ReactDOM.render(
-  <BrowserRouter>
-    <UserProvider>
-      <ProductsProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </ProductsProvider>
-    </UserProvider>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      {/* <UserProvider> */}
+        {/* <CategoriesProvider> */}
+          <CartProvider>
+            <App />
+          </CartProvider>
+        {/* </CategoriesProvider> */}
+      {/* </UserProvider> */}
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 

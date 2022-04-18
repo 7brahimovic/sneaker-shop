@@ -3,6 +3,7 @@ import { useContext, useEffect } from 'react';
 import { ReactComponent as ShoppingIcon } from '../../asset/shopping-bag.svg';
 
 import { CartContext } from '../../contexts/cart.context';
+import { useLocation } from 'react-router-dom'
 
 import './cart-icon.styles.scss';
 
@@ -10,25 +11,8 @@ const CartIcon = () => {
     const { isCartOpen, setIsCartOpen, cartItems, cartCount } = useContext(CartContext);
 
     const toggleIsCartOpen = () => {
-            setIsCartOpen(!isCartOpen)
-        
-
-
+        setIsCartOpen(!isCartOpen)
     };
-
-    // useEffect(() => {
-    //     function handleClickOutside(event) {
-    //         console.log(isCartOpen)
-    //         if (isCartOpen) {
-    //             console.log('qqq')
-    //             setIsCartOpen(false)
-    //         }
-    //     }
-    //     document.addEventListener("mousedown", handleClickOutside);
-    //     return () => {
-    //         document.removeEventListener("mousedown", handleClickOutside);
-    //     };
-    // })
 
 
     return (
