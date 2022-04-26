@@ -3,14 +3,27 @@ import './collection-item.styles.scss';
 import Button from '../button/button.component';
 import { useContext } from 'react';
 import {CartContext} from '../../contexts/cart.context';
-
+import {  addItemToCart } from '../../store/cart/cart.action';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCartItems } from '../../store/cart/cart.selector';
 function CollectionItem({ collection }) {
     const { id, name, price, imageUrl } = collection
-    const { addItemToCart, cartItems } = useContext(CartContext)
 
-    const toggleIAddItem = () => {
-        addItemToCart(collection)
-    };
+    const dispatch = useDispatch();
+    const cartItems = useSelector(selectCartItems)
+    const toggleIAddItem = () => dispatch(addItemToCart(cartItems, collection));
+
+    // const { addItemToCart, cartItems } = useContext(CartContext)
+
+    // const toggleIAddItem = () => {
+    //     console.log(collection)
+    //     addItemToCart(collection)
+
+    //     const newCartItems = addCartItem(collection);
+        
+    //     updateCartItemReducer(newCartItems)
+
+    // };
     return (
 
 

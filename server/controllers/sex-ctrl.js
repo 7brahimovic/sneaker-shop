@@ -1,75 +1,34 @@
 const Sex = require('../models/sex-model')
-
+const Shoplist = require('../models/sex-model')
 createSex = (req, res) => {
-    const body = req.body
-
-    if (!body) {
-        return res.status(400).json({
-            success: false,
-            error: 'You must provide a sex',
+    let sex = new Sex(req.body);
+    sex.save()
+        .then(todo => {
+            res.status(200).json({ 'sex': 'sex added successfully' });
         })
-    }
-    console.log(req.body)
-
-    const sex = new Sex(body)
-
-    if (!sex) {
-        return res.status(400).json({ success: false, error: err })
-    }
-
-    sex
-        .save()
-        .then(() => {
-            return res.status(201).json({
-                success: true,
-                id: sex._id,
-                message: 'Sex created!',
-            })
-        })
-        .catch(error => {
-            return res.status(400).json({
-                error,
-                message: 'Sex not created!',
-            })
-        })
+        .catch(err => {
+            res.status(400).send('adding new sex failed');
+        });
 }
 
 updateSex = async (req, res) => {
-    const body = req.body
-
-    if (!body) {
-        return res.status(400).json({
-            success: false,
-            error: 'You must provide a body to update',
-        })
-    }
-
-    Sex.findOne({ _id: req.params.id }, (err, sex) => {
-        if (err) {
-            return res.status(404).json({
-                err,
-                message: 'Sex not found!',
-            })
+    Sex.findById(req.params.id, function (err, sex) {
+        if (!sex)
+            res.status(404).send("data is not found");
+        else {
+            sex.name = req.body.name;
+            sex.time = req.body.time;
+            sex.rating = req.body.rating;
+            sex.customer = req.body.customer;
+            sex.userId = req.body.userId;
+            sex.save().then(sex => {
+                res.json('sex updated!');
+            }).catch(err => {
+                res.status(400).send("Update not possible");
+            });
         }
-        sex.name = body.name
-        sex.time = body.time
-        sex.rating = body.rating
-        sex
-            .save()
-            .then(() => {
-                return res.status(200).json({
-                    success: true,
-                    id: sex._id,
-                    message: 'Sex updated!',
-                })
-            })
-            .catch(error => {
-                return res.status(404).json({
-                    error,
-                    message: 'Sex not updated!',
-                })
-            })
-    })
+
+    });
 }
 
 deleteSex = async (req, res) => {
@@ -89,33 +48,26 @@ deleteSex = async (req, res) => {
 }
 
 getSexById = async (req, res) => {
-    await Sex.findOne({ _id: req.params.id }, (err, sex) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-
-        return res.status(200).json({ success: true, data: sex })
-    }).catch(err => console.log(err))
+    let id = req.params.id;
+    Sex.findById(id, function (err, todo) {
+        res.json(todo);
+    });
 }
 
-getSexs = async (req, res) => {
-    await Sex.find({}, (err, sexs) => {
+getSexes = async (req, res) => {
+    Sex.find(function (err, sexes) {
         if (err) {
-            return res.status(400).json({ success: false, error: err })
+            console.log(err);
+        } else {
+            res.json(sexes);
         }
-        if (!sexs.length) {
-            return res
-                .status(404)
-                .json({ success: false, error: `Sex not found` })
-        }
-        return res.status(200).json({ success: true, data: sexs })
-    }).catch(err => console.log(err))
+    });
 }
 
 module.exports = {
     createSex,
     updateSex,
     deleteSex,
-    getSexs,
+    getSexes,
     getSexById,
 }

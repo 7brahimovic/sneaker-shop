@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 import { ReactComponent as Logo } from '../../asset/crown.svg';
@@ -15,18 +15,17 @@ import {
     LogoContainer,
     NavLinks,
     NavLink,
-  } from './header.styles';
-  import { useSelector } from 'react-redux';
+} from './header.styles';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../store/user/user.selector';
+import { selectIsCartOpen } from '../../store/cart/cart.selector'
 function Header() {
+    const isCartOpen = useSelector(selectIsCartOpen);
     const currentUser = useSelector(selectCurrentUser)
-    console.log(currentUser)
-    // const { currentUser } = useContext(UserContext)
+
     const signOutHandler = async () => {
         await signOutUser();
-        // setCurrentUser(null);
     };
-    const { isCartOpen } = useContext(CartContext);
     return (
         <Fragment>
             <NavigationContainer>
@@ -55,11 +54,11 @@ function Header() {
                             SIGN IN
                         </NavLink>
                     )}
-                    <CartIcon/>
+                    <CartIcon />
                 </NavLinks>
-                {isCartOpen && <CartDropdown/>}
+                {isCartOpen && <CartDropdown />}
             </NavigationContainer>
-            <Outlet/>
+            <Outlet />
         </Fragment>
 
 

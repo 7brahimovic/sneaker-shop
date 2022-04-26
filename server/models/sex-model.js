@@ -5,9 +5,11 @@ const Sex = new Schema(
     {
         name: { type: String, required: true },
         time: { type: [String], required: true },
-        rating: { type: Number, required: false },
+        amount: { type: Number, required: true },
+        customer: { type: [String], required: true },
+        userId: { type: String, required: true }
     },
     { timestamps: true },
 )
 
-module.exports = mongoose.model('sexes', Sex)
+module.exports = mongoose.model('Sex', Sex)

@@ -13,18 +13,23 @@ import { useDispatch } from 'react-redux';
 import { createUserDocumentFromAuth, onAuthStateChangedListener } from './utils/firebase/firebase.utils';
 import { setCategoriesMap } from './store/categories/categories.action';
 import { getCategoriesAndDocuments } from './utils/firebase/firebase.utils';
+import apis from './api/api';
+import { setCartItems } from './store/cart/cart.action';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     const subscribe = onAuthStateChangedListener((user) => {
-        if (user) {
-            createUserDocumentFromAuth(user);
-        }
-        dispatch(setCurrentUser(user));
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
+      dispatch(setCurrentUser(user));
+      apis.getOrder(user.uid).then(cartItems => {
+        dispatch(setCartItems(cartItems.data.cartItems))
+      })
     });
 
     return subscribe;
-},[dispatch]);
+  }, [dispatch]);
 
 
 

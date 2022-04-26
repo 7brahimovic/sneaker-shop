@@ -4,17 +4,32 @@ import { CartContext } from "../../contexts/cart.context";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import './checkout.styles.scss';
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectCartItems, selectCartTotal } from "../../store/cart/cart.selector";
+import Button from "../../components/button/button.component";
+import apis, { createOrder } from "../../api/api";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 function Checkout() {
-    const { cartItems, cartTotal, setIsCartOpen, isCartOpen } = useContext(CartContext);
 
+    const cartItems = useSelector(selectCartItems);
+    const cartTotal = useSelector(selectCartTotal);
+
+    const currentUser = useSelector(selectCurrentUser);
     // useEffect(() => {
     //     if(isCartOpen) {
     //         setIsCartOpen(false)
     //     }
 
     // })
-
+    const saveOrder = () => {
+        console.log(cartItems)
+        console.log(currentUser.uid)
+        apis.saveOrder({
+            userId: currentUser.uid,
+            cartItems: cartItems,
+        })
+    }
 
     return (
         <div className='checkout-container'>
@@ -38,7 +53,12 @@ function Checkout() {
             {cartItems.map((cartItem) => (
                 <CheckoutItem key={cartItem.id} cartItem={cartItem} />
             ))}
-            <div className='total'>TOTAL: ${cartTotal}</div>
+            <div className='total'>
+                <div>TOTAL: ${cartTotal}</div>
+                <Button onClick={saveOrder}>SAVE</Button>
+
+            </div>
+
         </div>
     );
 };
