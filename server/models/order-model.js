@@ -9,5 +9,10 @@ const Order = new Schema(
     { timestamps: true },
 )
 
+
+Order.methods.comparePassword = function() {
+    console.log('sad')
+};
+
 module.exports = mongoose.model('order', Order)
 

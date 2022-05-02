@@ -1,18 +1,21 @@
 import { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
-import Button, {BUTTON_TYPE_CLASSES} from '../button/button.component';
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
 import {
     signInWithGooglePopup,
     createUserDocumentFromAuth,
     signInAuthUserWithEmailAndPassword,
-    
+
 } from '../../utils/firebase/firebase.utils';
 
 import './sign-in-form.styles.scss';
 import { UserContext } from '../../contexts/user.context';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import apis from '../../api/api';
+import { setCartItems } from '../../store/cart/cart.action';
+import { useDispatch } from 'react-redux';
 const defaultFormFields = {
     email: '',
     password: '',
@@ -21,7 +24,7 @@ const defaultFormFields = {
 function SignInForm() {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
-
+    const dispatch = useDispatch();
     let navigate = useNavigate();
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
@@ -31,6 +34,20 @@ function SignInForm() {
         const { user } = await signInWithGooglePopup();
         await createUserDocumentFromAuth(user);
 
+        if (user) {
+            try {
+                apis.getOrder(user.uid).then(cartItems => {
+                    console.log(cartItems.data.cartItems)
+                    dispatch(setCartItems(cartItems.data.cartItems))
+                })
+
+            }
+            catch (error) {
+                throw new Error(error);
+
+            }
+
+        }
         resetFormFields();
         navigate('/');
 
@@ -40,11 +57,27 @@ function SignInForm() {
         event.preventDefault();
 
         try {
-            const {user} = await signInAuthUserWithEmailAndPassword(
+            const { user } = await signInAuthUserWithEmailAndPassword(
                 email,
                 password
             );
             console.log(user)
+            if (user) {
+
+                try {
+                    apis.getOrder(user.uid).then(cartItems => {
+                        console.log(cartItems.data.cartItems)
+                        dispatch(setCartItems(cartItems.data.cartItems))
+                    })
+
+                }
+                catch (error) {
+                    throw new Error(error);
+
+                }
+
+            }
+
             resetFormFields();
             navigate('/');
             // setCurrentUser(user);

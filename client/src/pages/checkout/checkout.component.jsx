@@ -14,6 +14,7 @@ function Checkout() {
 
     const cartItems = useSelector(selectCartItems);
     const cartTotal = useSelector(selectCartTotal);
+    console.log('ipen')
 
     const currentUser = useSelector(selectCurrentUser);
     // useEffect(() => {

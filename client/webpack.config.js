@@ -6,6 +6,6 @@ module.exports = {
         filename: 'bundle.js'
     },
     loader: {
-        presets: ['es2015','react-router-dom','react']
-    }
+        presets: ['es2015', 'react-router-dom', 'react']
+    },
 };

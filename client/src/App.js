@@ -22,10 +22,15 @@ function App() {
       if (user) {
         createUserDocumentFromAuth(user);
       }
+      console.log('ftf')
       dispatch(setCurrentUser(user));
-      apis.getOrder(user.uid).then(cartItems => {
-        dispatch(setCartItems(cartItems.data.cartItems))
-      })
+      console.log(user)
+      // if (user) {
+      //   apis.getOrder(user.uid).then(cartItems => {
+      //     dispatch(setCartItems(cartItems.data.cartItems))
+      //   })
+
+      // }
     });
 
     return subscribe;

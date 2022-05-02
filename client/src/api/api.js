@@ -11,6 +11,7 @@ const shoplistAPI = axios.create({
 const orderAPI = axios.create({
     baseURL: 'http://localhost:4000/order',
 })
+// fetch("https://randomuser.me/api/?results=20")
 
 export const createSex = payload => sexAPI.post(`/`, payload)
 export const getSexes = () => sexAPI.get(`/`)

@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect, Fragment } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import CollectionItem from '../../components/collection-item/collection-item.component';
 
 import { CategoriesContext } from '../../contexts/categories.context';
@@ -22,6 +22,7 @@ const Category = () => {
   console.log('rerendering')
 
   const { category } = useParams();
+  console.log(category);
   const categoriesMap = useSelector(selectCurrentCategories);
   // const [products, setProducts] = useState(categoriesMap[category]);
 
@@ -31,7 +32,11 @@ const Category = () => {
 
   return (
     <Fragment>
-      <h2 className='category-title'>{category.toUpperCase()}</h2>
+      <h2>
+        <Link className='category-title' to={'/girls'}>
+          {category.toUpperCase()}
+        </Link>
+      </h2>
       <div className='girl-page'>
         <div className='collection-preview'>{
           categoriesMap[category] && categoriesMap[category].map((product) => (

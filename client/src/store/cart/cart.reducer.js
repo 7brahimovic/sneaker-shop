@@ -4,6 +4,7 @@ export const cartReducer = (state= CART_INITIAL_STATE, action={}) => {
     console.log('dispatched')
     console.log(action)
     const { type, payload } = action;
+    console.log(type)
 
     switch (type) {
         case CART_ACTION_TYPES.SET_CART_ITEMS:

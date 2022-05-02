@@ -19,12 +19,16 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { selectIsCartOpen } from '../../store/cart/cart.selector'
+import { setCartItems } from '../../store/cart/cart.action';
 function Header() {
     const isCartOpen = useSelector(selectIsCartOpen);
+    console.log('ipen')
     const currentUser = useSelector(selectCurrentUser)
 
+    const dispatch = useDispatch();
     const signOutHandler = async () => {
         await signOutUser();
+            // dispatch(setCartItems([]))
     };
     return (
         <Fragment>
