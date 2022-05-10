@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import { useContext, useState, useEffect, Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
@@ -19,23 +20,20 @@ const Category = () => {
   //   setProducts(categoriesMap[category]);
   // }, [category, categoriesMap]);
 
-  console.log('rerendering')
 
   const { category } = useParams();
-  console.log(category);
   const categoriesMap = useSelector(selectCurrentCategories);
   // const [products, setProducts] = useState(categoriesMap[category]);
 
   useEffect(() => {
-    console.log('effect fired')
   }, [category, categoriesMap]);
 
   return (
     <Fragment>
       <h2>
-        <Link className='category-title' to={'/girls'}>
+        <Button className='title' component={Link} to={'/girls'} variant="contained">
           {category.toUpperCase()}
-        </Link>
+        </Button>
       </h2>
       <div className='girl-page'>
         <div className='collection-preview'>{

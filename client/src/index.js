@@ -10,6 +10,8 @@ import { CategoriesProvider } from './contexts/categories.context';
 import { CartProvider } from './contexts/cart.context';
 import { persistor, store } from './store/store'
 import { PersistGate } from 'redux-persist/integration/react';
+
+
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate persistor={persistor} loading={null}>

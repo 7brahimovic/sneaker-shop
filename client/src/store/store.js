@@ -24,7 +24,7 @@ const middleWares = [process.env.NODE_ENV === 'development' && logger, thunk].fi
 const persistConfig ={
     key: 'root',
     storage,
-    blacklist: ['user']
+    blacklist: ['user'],
 }
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 const composedEnhancers = composeEnhancer(applyMiddleware(...middleWares));

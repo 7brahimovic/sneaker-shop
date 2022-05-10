@@ -20,7 +20,9 @@
     "mongoose": "^6.2.7",
     "nodemon": "^2.0.15",
     "passport-local": "^1.0.0",
-    "password": "^0.1.1"
+    "password": "^0.1.1",
+    "socket.io": "^4.5.0",
+    "ws": "^8.6.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0"

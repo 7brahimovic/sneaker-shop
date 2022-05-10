@@ -11,8 +11,6 @@ import { setCategoriesMap, fetchCategoriesAsync } from '../../store/categories/c
 import apis from '../../api/api';
 import GIRLS_DATA from '../../girls.data';
 
-
-
 function GirlsShop() {
   const dispatch = useDispatch();
 
@@ -41,7 +39,7 @@ function GirlsShop() {
         console.log(list)
         dispatch(setCategoriesMap(list))
       }
-      ).finally(console.log('dede11!!!!'))
+      ).finally()
     }
     async function fetchData1(){
       dispatch(fetchCategoriesAsync());

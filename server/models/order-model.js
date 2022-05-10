@@ -14,5 +14,5 @@ Order.methods.comparePassword = function() {
     console.log('sad')
 };
 
-module.exports = mongoose.model('order', Order)
+module.exports = mongoose.model('orders', Order)
 

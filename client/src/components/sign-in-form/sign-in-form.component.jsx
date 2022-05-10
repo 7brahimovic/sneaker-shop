@@ -37,7 +37,6 @@ function SignInForm() {
         if (user) {
             try {
                 apis.getOrder(user.uid).then(cartItems => {
-                    console.log(cartItems.data.cartItems)
                     dispatch(setCartItems(cartItems.data.cartItems))
                 })
 
@@ -61,12 +60,10 @@ function SignInForm() {
                 email,
                 password
             );
-            console.log(user)
             if (user) {
 
                 try {
                     apis.getOrder(user.uid).then(cartItems => {
-                        console.log(cartItems.data.cartItems)
                         dispatch(setCartItems(cartItems.data.cartItems))
                     })
 

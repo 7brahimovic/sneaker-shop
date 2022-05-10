@@ -13,8 +13,6 @@ const INITIAL_STATE = {
   categoriesMap: {}
 }
 const categoriesReducer = (state, action) => {
-  console.log('dispatched')
-  console.log(action)
   const { type, payload } = action;
 
   switch (type) {

@@ -19,7 +19,6 @@ export const fetchCategoriesAsync = () => async(dispatch) => {
   dispatch(fetchCategoriesStart())
   try {
     const categoriesArray = await apis.getShoplists();
-    console.log(categoriesArray)
     const list = {
 
       白石麻衣: categoriesArray.data[0].list,
@@ -27,7 +26,6 @@ export const fetchCategoriesAsync = () => async(dispatch) => {
       渡辺美優紀: categoriesArray.data[2].list,
       
     }
-    console.log(list)
     dispatch(fetchCategoriesSuccess(list));
   } catch(error) {
     dispatch(fetchCategoriesFailed(error));

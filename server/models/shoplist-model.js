@@ -7,5 +7,5 @@ const Shoplist = new Schema(
     },
 )
 
-module.exports = mongoose.model('Shoplist', Shoplist)
+module.exports = mongoose.model('shoplists', Shoplist)
 

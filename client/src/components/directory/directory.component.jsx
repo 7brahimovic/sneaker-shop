@@ -5,6 +5,8 @@ import Mai from '../../image/wallpaper.jpg';
 import Sarii from '../../image/3.jpg';
 import Rino from '../../image/4.jpg';
 import Yuki from '../../image/5.jpg';
+import rape from '../../asset/rape.mp4'
+import yukicm from '../../asset/yukicm.mp4'
 
 
 import './directory.styles.scss';
@@ -18,8 +20,25 @@ class Directory extends React.Component {
                     title: '白石麻衣',
                     imageUrl: Mai,
                     id: 2,
-                    linkUrl: 'girls'
+                    linkUrl: 'girls/白石麻衣',
+                    video: rape
                 },
+                {
+                    title: '柏木由紀',
+                    imageUrl: Yuki,
+                    id: 2,
+                    linkUrl: 'girls/柏木由紀',
+                    video: yukicm
+
+                },
+                {
+                    title: '渡辺美優紀',
+                    imageUrl: Miyuki,
+                    id: 2,
+                    linkUrl: 'girls/渡辺美優紀',
+                    video: yukicm
+
+                }
             ]
         }
     }
@@ -29,8 +48,8 @@ class Directory extends React.Component {
             <div className='directory-menu'>
 
                 {
-                    this.state.sections.map(({ title, imageUrl, id, size, linkUrl }) => (
-                        <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} linkUrl={linkUrl} history={this.props.history}/>
+                    this.state.sections.map(({ title, imageUrl, id, video, linkUrl }) => (
+                        <MenuItem key={id} title={title} imageUrl={imageUrl} linkUrl={linkUrl} video={video} history={this.props.history}/>
                     )
                     )
                 }
