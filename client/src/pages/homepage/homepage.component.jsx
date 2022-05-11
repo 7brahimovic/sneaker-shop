@@ -5,9 +5,10 @@ import Directory from '../../components/directory/directory.component';
 import './homepage.styles.scss';
 
 function HomePage() {
+    console.log(process.env.REACT_APP_WEATHER_API_KEY)
+
     return (
         <div className='homepage'>
-            {/* <h1>君を犯したい</h1> */}
             <Directory/>
         </div>
     )

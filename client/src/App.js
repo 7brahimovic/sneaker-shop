@@ -16,9 +16,9 @@ import { setCategoriesMap } from './store/categories/categories.action';
 import { getCategoriesAndDocuments } from './utils/firebase/firebase.utils';
 import apis from './api/api';
 import { setCartItems } from './store/cart/cart.action';
+console.log(process.env.REACT_APP_WEATHER_API_KEY)
+
 function App() {
-
-
   const dispatch = useDispatch();
   useEffect(() => {
     const subscribe = onAuthStateChangedListener((user) => {
