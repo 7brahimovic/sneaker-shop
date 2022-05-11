@@ -31,7 +31,7 @@ const Category = () => {
   return (
     <Fragment>
       <h2>
-        <Button className='title' component={Link} to={'/girls'} variant="contained">
+        <Button className='title' component={Link} to={'/sneakers'} variant="contained">
           {category.toUpperCase()}
         </Button>
       </h2>

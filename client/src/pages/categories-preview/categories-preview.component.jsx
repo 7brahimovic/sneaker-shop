@@ -37,9 +37,9 @@ const CategoriesPreview = () => {
 
   return (
     <Fragment>
-      <textarea id="txtShow" disabled></textarea>
+      {/* <textarea id="txtShow" disabled></textarea>
       <input id="txtInput" onChange={textEvent} type="text" />
-      <button id="btnSend" onClick={clickEvent}>送出</button>
+      <button id="btnSend" onClick={clickEvent}>送出</button> */}
       {Object.keys(categoriesMap).map((title) => {
         const products = categoriesMap[title];
         return (

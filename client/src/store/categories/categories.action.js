@@ -2,6 +2,7 @@ import { CATEGORIES_ACTION_TYPES } from './categories.types';
 import { createAction } from '../../utils/reducer/reducer.utils';
 import apis from '../../api/api';
 import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils';
+import GIRLS_DATA from '../../girls.data';
 
 export const setCategoriesMap = (categoriesMap) =>
   createAction(CATEGORIES_ACTION_TYPES.SET_CATEGORIES_MAP, categoriesMap);
@@ -18,12 +19,14 @@ export const fetchCategoriesFailed = (error) =>
 export const fetchCategoriesAsync = () => async(dispatch) => {
   dispatch(fetchCategoriesStart())
   try {
-    const categoriesArray = await apis.getShoplists();
+    // const categoriesArray = await apis.getShoplists();
+    const categoriesArray = GIRLS_DATA;
+    console.log(categoriesArray)
     const list = {
 
-      白石麻衣: categoriesArray.data[0].list,
-      柏木由紀: categoriesArray.data[1].list,
-      渡辺美優紀: categoriesArray.data[2].list,
+      nike: categoriesArray[0].items,
+      adidas: categoriesArray[1].items,
+      // 渡辺美優紀: categoriesArray.data[2].list,
       
     }
     dispatch(fetchCategoriesSuccess(list));

@@ -27,12 +27,6 @@ function App() {
       }
       console.log('ftf')
       dispatch(setCurrentUser(user));
-      // if (user) {
-      //   apis.getOrder(user.uid).then(cartItems => {
-      //     dispatch(setCartItems(cartItems.data.cartItems))
-      //   })
-
-      // }
     });
 
     return subscribe;
@@ -46,7 +40,7 @@ function App() {
       <div style={{ marginTop: '190px' }}>
         <Routes>
           <Route exact path='/' element={<HomePage />} />
-          <Route path='/girls/*' element={<GirlsPage />} />
+          <Route path='/sneakers/*' element={<GirlsPage />} />
           <Route path='/signin' element={<Authentication />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/chatroom' element={<Chatroom />} />

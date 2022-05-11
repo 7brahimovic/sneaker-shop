@@ -47,31 +47,31 @@ const server = app.listen(wsPort, () => {
 })
 const wss = new WebSocketServer({ server });
 const users = new Set();
-wss.on('connection', ws => {
-    console.log('Client connected')
-    const userRef = {
-        socket: socket,
-    };
-    users.add(userRef);
+// wss.on('connection', ws => {
+//     console.log('Client connected')
+//     const userRef = {
+//         socket: socket,
+//     };
+//     users.add(userRef);
 
-    // const sendNowTime = setInterval(()=>{
-    //     ws.send(String(new Date()))
-    // },1000)
+//     // const sendNowTime = setInterval(()=>{
+//     //     ws.send(String(new Date()))
+//     // },1000)
 
-    ws.on('message', data => {
-        data = data.toString()
-        // ws.send(data)
+//     ws.on('message', data => {
+//         data = data.toString()
+//         // ws.send(data)
 
-        wss.clients.forEach(client => {
-            client.send(data);
-        })
-    })
+//         wss.clients.forEach(client => {
+//             client.send(data);
+//         })
+//     })
 
-    ws.on('close', (code, reason) => {
-        console.log(`User disconnected with code ${code} and reason ${reason}!`);
-        users.delete(userRef);
-    });
-})
+//     ws.on('close', (code, reason) => {
+//         console.log(`User disconnected with code ${code} and reason ${reason}!`);
+//         users.delete(userRef);
+//     });
+// })
 
 
 const sendMessage = (message) => {

@@ -20,26 +20,6 @@ function GirlsShop() {
   // }, []);
   useEffect(() => {
     async function fetchData(){
-      await apis.getShoplists().then(shoplist => {
-
-        const list = {
-          // title1: GIRLS_DATA[0].items,
-          // title2: GIRLS_DATA[1].items,
-          // title3: GIRLS_DATA[2].items,
-
-          白石麻衣: shoplist.data[0].list,
-          柏木由紀: shoplist.data[1].list,
-          渡辺美優紀: shoplist.data[2].list,
-          
-        }
-        // list[GIRLS_DATA[0].title] = GIRLS_DATA[0].items
-        // list[GIRLS_DATA[1].title] = GIRLS_DATA[1].items
-        // list[GIRLS_DATA[2].title] = GIRLS_DATA[2].items
-
-        console.log(list)
-        dispatch(setCategoriesMap(list))
-      }
-      ).finally()
     }
     async function fetchData1(){
       dispatch(fetchCategoriesAsync());

@@ -5,8 +5,6 @@ import Mai from '../../image/wallpaper.jpg';
 import Sarii from '../../image/3.jpg';
 import Rino from '../../image/4.jpg';
 import Yuki from '../../image/5.jpg';
-import rape from '../../asset/rape.mp4'
-import yukicm from '../../asset/yukicm.mp4'
 
 
 import './directory.styles.scss';
@@ -20,25 +18,23 @@ class Directory extends React.Component {
                     title: '白石麻衣',
                     imageUrl: Mai,
                     id: 2,
-                    linkUrl: 'girls/白石麻衣',
-                    video: rape
+                    linkUrl: 'sneakers/nike',
                 },
                 {
                     title: '柏木由紀',
                     imageUrl: Yuki,
                     id: 2,
-                    linkUrl: 'girls/柏木由紀',
-                    video: yukicm
+                    linkUrl: 'sneakers/adidas',
 
                 },
-                {
-                    title: '渡辺美優紀',
-                    imageUrl: Miyuki,
-                    id: 2,
-                    linkUrl: 'girls/渡辺美優紀',
-                    video: yukicm
+                // {
+                //     title: '渡辺美優紀',
+                //     imageUrl: Miyuki,
+                //     id: 2,
+                //     linkUrl: 'girls/渡辺美優紀',
+                //     video: yukicm
 
-                }
+                // }
             ]
         }
     }

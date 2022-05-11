@@ -2,7 +2,6 @@ import React from 'react';
 import './menu-item.styles.scss';
 import MediaQuery from 'react-responsive';
 import { useNavigate } from "react-router";
-import rape from '../../asset/rape.mp4'
 
 function MenuItem({ title, imageUrl, linkUrl, video }) {
     let navigate = useNavigate();

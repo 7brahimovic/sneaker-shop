@@ -2,7 +2,7 @@ import React, { Fragment, useContext, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 import { ReactComponent as Logo } from '../../asset/crown.svg';
-import rape from '../../asset/rape.mp4'
+import logo from '../../asset/crown.svg'
 import { UserContext } from '../../contexts/user.context';
 // import './header.styles.scss';
 import { Navigate, useNavigate } from 'react-router-dom';
@@ -30,6 +30,8 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { ReactComponent as CrwnLogo } from '../../asset/crown.svg';
+
 function Header() {
     const isCartOpen = useSelector(selectIsCartOpen);
     const currentUser = useSelector(selectCurrentUser)
@@ -77,7 +79,7 @@ function Header() {
                     </ListItemIcon>
                     <ListItemText primary='Home' />
                 </ListItem>
-                <ListItem button key='Girls' component={Link} to='/girls'>
+                <ListItem button key='Girls' component={Link} to='/sneakers'>
                     <ListItemIcon>
                         {IconSwitch('Girls')}
                     </ListItemIcon>
@@ -141,11 +143,6 @@ function Header() {
                 >
                     {list()}
                 </Drawer>
-                <LogoContainer to='/'>
-                    <video className='videoTag' autoPlay loop muted>
-                        <source src={rape} type='video/mp4' />
-                    </video>
-                </LogoContainer>
                 <NavLinks>
                     {/* <Button className='title' component={NavLink} to={'/girls'} variant="contained">
                         SHOP

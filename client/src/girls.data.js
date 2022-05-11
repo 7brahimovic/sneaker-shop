@@ -30,75 +30,66 @@ import miyuki6 from './image/miyuki/miyuki6.jpg';
 import miyuki7 from './image/miyuki/miyuki7.jpg';
 import miyuki8 from './image/miyuki/miyuki8.jpg';
 import miyuki9 from './image/miyuki/miyuki9.jpg';
+
+
+
+import nike1 from './image/nike/nike1.jpeg';
+import nike2 from './image/nike/nike2.jpeg';
+import nike3 from './image/nike/nike3.jpeg';
+import nike4 from './image/nike/nike4.jpeg';
+import nike5 from './image/nike/nike5.jpeg';
+import nike6 from './image/nike/nike6.jpeg';
+
+import adidas1 from './image/adidas/adidas1.jpeg';
+import adidas2 from './image/adidas/adidas2.jpeg';
+import adidas3 from './image/adidas/adidas3.jpeg';
+import adidas4 from './image/adidas/adidas4.jpeg';
+import adidas5 from './image/adidas/adidas5.jpeg';
+import adidas6 from './image/adidas/adidas6.jpeg';
 const GIRLS_DATA = [
   {
-    title: '白石麻衣',
+    title: 'Nike',
     items: [
       {
         id: 1,
         name: '口フェラ',
-        // imageUrl: 'https://i.ibb.co/0s3pdnc/adidas-nmd.png',
-        imageUrl: mai1,
+        imageUrl: nike1,
         price: 1000000
       },
       {
         id: 2,
         name: '足コキ',
-        // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: mai2,
+        imageUrl: nike2,
         price: 5000000
       },
       {
         id: 3,
         name: 'パイズリ',
         // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: mai3,
+        imageUrl: nike3,
         price: 5000000
       },
       {
         id: 4,
         name: '男潮',
         // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: mai4,
+        imageUrl: nike4,
         price: 5000000
       },
       {
         id: 5,
         name: 'チクシャッ',
         // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: mai5,
+        imageUrl: nike5,
         price: 5000000
       },
       {
         id: 6,
         name: '素股',
         // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: mai6,
+        imageUrl: nike6,
         price: 5000000
-      },
-      {
-        id: 7,
-        name: '本番',
-        // imageUrl: 'https://i.ibb.co/bPmVXyP/black-converse.png',
-        imageUrl: mai7,
-        price: 8000000
-      },
-      {
-        id: 8,
-        name: 'アナル',
-        // imageUrl: 'https://i.ibb.co/bPmVXyP/black-converse.png',
-        imageUrl: mai8,
-        price: 8000000
-      },
-      {
-        id: 9,
-        name: '中出し',
-        // imageUrl: 'https://i.ibb.co/1RcFPk0/white-nike-high-tops.png',
-        imageUrl: mai9,
-        price: 10000000
-      },
-
-
+      }
     ]
   },
 
@@ -108,141 +99,39 @@ const GIRLS_DATA = [
       {
         id: 1,
         name: '口フェラ',
-        // imageUrl: 'https://i.ibb.co/0s3pdnc/adidas-nmd.png',
-        imageUrl: yuki1,
+        imageUrl: adidas1,
         price: 1000000
       },
       {
         id: 2,
         name: '足コキ',
-        // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: yuki2,
+        imageUrl: adidas2,
         price: 5000000
       },
       {
         id: 3,
         name: 'パイズリ',
-        // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: yuki3,
+        imageUrl: adidas3,
         price: 5000000
       },
       {
         id: 4,
         name: '男潮',
-        // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: yuki4,
+        imageUrl: adidas4,
         price: 5000000
       },
       {
         id: 5,
         name: 'チクシャッ',
-        // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: yuki5,
+        imageUrl: adidas5,
         price: 5000000
       },
       {
         id: 6,
         name: '素股',
-        // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: yuki6,
+        imageUrl: adidas6,
         price: 5000000
-      },
-      {
-        id: 7,
-        name: '本番',
-        // imageUrl: 'https://i.ibb.co/bPmVXyP/black-converse.png',
-        imageUrl: yuki7,
-        price: 8000000
-      },
-      {
-        id: 8,
-        name: 'アナル',
-        // imageUrl: 'https://i.ibb.co/bPmVXyP/black-converse.png',
-        imageUrl: yuki8,
-        price: 8000000
-      },
-      {
-        id: 9,
-        name: '中出し',
-        // imageUrl: 'https://i.ibb.co/1RcFPk0/white-nike-high-tops.png',
-        imageUrl: yuki9,
-        price: 10000000
-      },
-
-
-    ]
-  },
-
-  
-
-  {
-    title: '渡辺美優紀',
-    items: [
-      {
-        id: 1,
-        name: '口フェラ',
-        // imageUrl: 'https://i.ibb.co/0s3pdnc/adidas-nmd.png',
-        imageUrl: miyuki1,
-        price: 1000000
-      },
-      {
-        id: 2,
-        name: '足コキ',
-        // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: miyuki2,
-        price: 5000000
-      },
-      {
-        id: 3,
-        name: 'パイズリ',
-        // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: miyuki3,
-        price: 5000000
-      },
-      {
-        id: 4,
-        name: '男潮',
-        // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: miyuki4,
-        price: 5000000
-      },
-      {
-        id: 5,
-        name: 'チクシャッ',
-        // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: miyuki5,
-        price: 5000000
-      },
-      {
-        id: 6,
-        name: '素股',
-        // imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        imageUrl: miyuki6,
-        price: 5000000
-      },
-      {
-        id: 7,
-        name: '本番',
-        // imageUrl: 'https://i.ibb.co/bPmVXyP/black-converse.png',
-        imageUrl: miyuki7,
-        price: 8000000
-      },
-      {
-        id: 8,
-        name: 'アナル',
-        // imageUrl: 'https://i.ibb.co/bPmVXyP/black-converse.png',
-        imageUrl: miyuki8,
-        price: 8000000
-      },
-      {
-        id: 9,
-        name: '中出し',
-        // imageUrl: 'https://i.ibb.co/1RcFPk0/white-nike-high-tops.png',
-        imageUrl: miyuki9,
-        price: 10000000
-      },
-
-
+      }
     ]
   },
 ];
