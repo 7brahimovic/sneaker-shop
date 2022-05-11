@@ -12,12 +12,12 @@ saveOrder = async (req, res) => {
                     res.status(200).json({ 'order': 'order added successfully' });
                 })
                 .catch(err => {
-                    res.status(400).send('adding new sex failed');
+                    res.status(400).send('adding new sneaker failed');
                 });
         else {
             oldOrder.cartItems = order.cartItems;
             oldOrder.save().then(order => {
-                res.json('sex updated!');
+                res.json('sneaker updated!');
             }).catch(err => {
                 res.status(400).send("Update not possible");
             });

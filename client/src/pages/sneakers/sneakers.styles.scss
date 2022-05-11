@@ -1,0 +1,23 @@
+video {
+  width: 800px;
+}
+.girl-page {
+  display: flex;
+  overflow-y: scroll;
+}
+
+.collection-preview {
+  display: flex;
+  margin-bottom: 30px;
+
+  .title {
+    font-size: 28px;
+    margin-bottom: 25px;
+    margin: 10px;
+  }
+
+  .preview {
+    display: flex;
+    justify-content: space-between;
+  }
+}

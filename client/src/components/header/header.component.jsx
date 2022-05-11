@@ -56,7 +56,7 @@ function Header() {
         switch (text) {
 
             case "Home": return <HomeIcon />;
-            case "Girls": return <FemaleIcon />;
+            case "Sneakers": return <FemaleIcon />;
             case "Checkout": return <ShoppingCartCheckoutIcon />;
             case "Posts": return <PostAddIcon />;
             case "Signin": return <LoginIcon />;
@@ -79,11 +79,11 @@ function Header() {
                     </ListItemIcon>
                     <ListItemText primary='Home' />
                 </ListItem>
-                <ListItem button key='Girls' component={Link} to='/sneakers'>
+                <ListItem button key='Sneakers' component={Link} to='/sneakers'>
                     <ListItemIcon>
-                        {IconSwitch('Girls')}
+                        {IconSwitch('Sneakers')}
                     </ListItemIcon>
-                    <ListItemText primary='Girls' />
+                    <ListItemText primary='Sneakers' />
                 </ListItem>
                 <ListItem button key='Checkout' component={Link} to='/checkout'>
                     <ListItemIcon>
@@ -98,26 +98,6 @@ function Header() {
                     <ListItemText primary='Posts' />
                 </ListItem>
             </List>
-            {/* <Divider />
-            <List>
-                {currentUser ?
-
-                    <ListItem button key='Signout' component={Link} onClick={signOutHandler}>
-                        <ListItemIcon>
-                            {IconSwitch('Signout')}
-                        </ListItemIcon>
-                        <ListItemText primary='Signout' />
-                    </ListItem>
-                    :
-                    <ListItem button key='Signin' component={Link} to='/signin'>
-                        <ListItemIcon>
-                            {IconSwitch('Signin')}
-                        </ListItemIcon>
-                        <ListItemText primary='Signin' />
-                    </ListItem>
-
-                }
-            </List> */}
         </Box>
     );
 
@@ -144,27 +124,12 @@ function Header() {
                     {list()}
                 </Drawer>
                 <NavLinks>
-                    {/* <Button className='title' component={NavLink} to={'/girls'} variant="contained">
-                        SHOP
-                    </Button> */}
                     {currentUser ? (
                         <div>
                             Hello! {currentUser.displayName}
                         </div>
                     ) : ('')
                     }
-                    {/* {currentUser ? (
-
-<Button className='title' onClick={signOutHandler} variant="contained">
-SIGN OUT
-
-</Button>
-                    ) : (
-                        <Button className='title' component={NavLink} to={'/signin'} variant="contained">
-                            SIGNIN
-
-                        </Button>
-                    )} */}
                     {currentUser ? (
 
                         <NavLink as='span' className='option' onClick={signOutHandler}>

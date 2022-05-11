@@ -13,17 +13,6 @@ function CollectionItem({ collection }) {
     const cartItems = useSelector(selectCartItems)
     const toggleIAddItem = () => dispatch(addItemToCart(cartItems, collection));
 
-    // const { addItemToCart, cartItems } = useContext(CartContext)
-
-    // const toggleIAddItem = () => {
-    //     console.log(collection)
-    //     addItemToCart(collection)
-
-    //     const newCartItems = addCartItem(collection);
-        
-    //     updateCartItemReducer(newCartItems)
-
-    // };
     return (
 
 
@@ -33,15 +22,11 @@ function CollectionItem({ collection }) {
                 style={{ backgroundImage: `url(${imageUrl})` }}
 
             />
-            {/* <div className='content' >
-            <span className='subtitle'>FUCK NOW</span>
-        </div> */}
             <div className='collection-footer'>
                 <span className='name'>{name}</span>
                 <span className='price'>{price/10000}万円</span>
 
             </div>
-            {/* <Button buttonType='inverted'>Add to card</Button> */}
 
         </div>
     )

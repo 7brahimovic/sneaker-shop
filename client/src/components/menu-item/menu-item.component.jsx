@@ -1,6 +1,5 @@
 import React from 'react';
 import './menu-item.styles.scss';
-import MediaQuery from 'react-responsive';
 import { useNavigate } from "react-router";
 
 function MenuItem({ title, imageUrl, linkUrl, video }) {
@@ -15,7 +14,7 @@ function MenuItem({ title, imageUrl, linkUrl, video }) {
             </video> */}
             <div className='content' >
                 <h1 className='title'>{title.toUpperCase()}</h1>
-                <span className='subtitle'>FUCK NOW</span>
+                <span className='subtitle'>BUY NOW</span>
             </div>
 
         </div>

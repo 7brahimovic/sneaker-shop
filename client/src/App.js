@@ -5,7 +5,7 @@ import './App.css';
 import Header from './components/header/header.component.jsx';
 
 import HomePage from './pages/homepage/homepage.component';
-import GirlsPage from './pages/girls/girls.component';
+import SneakersShop from './pages/sneakers/sneakers.component';
 import Authentication from './pages/authentication/authentication.component';
 import Checkout from './pages/checkout/checkout.component';
 import Chatroom from './pages/chatroom/chatroom.component';
@@ -40,7 +40,7 @@ function App() {
       <div style={{ marginTop: '190px' }}>
         <Routes>
           <Route exact path='/' element={<HomePage />} />
-          <Route path='/sneakers/*' element={<GirlsPage />} />
+          <Route path='/sneakers/*' element={<SneakersShop />} />
           <Route path='/signin' element={<Authentication />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/chatroom' element={<Chatroom />} />

@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-const sexRouter = require('./routes/sex-router')
+const sneakerRouter = require('./routes/sneaker-router')
 const movieRouter = require('./routes/movie-router')
 const todoRouter = require('./routes/todo-router')
 const mongoose = require('mongoose')
@@ -20,7 +20,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 
-mongoose.connect('mongodb://localhost:27017/sexes',
+mongoose.connect('mongodb://localhost:27017/sneakers',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -34,7 +34,7 @@ connection.once('open', function () {
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
-app.use('/sexes', sexRouter);
+app.use('/sneakers', sneakerRouter);
 app.use('/shoplists', shoplistRouter);
 app.use('/order', orderRouter);
 

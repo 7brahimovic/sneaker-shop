@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useReducer } from 'react';
-import GIRLS_DATA from '../girls.data';
+import SNEAKERS_DATA from '../sneakers.data';
 
 import { getCategoriesAndDocuments } from '../utils/firebase/firebase.utils';
 

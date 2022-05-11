@@ -16,7 +16,6 @@ const CategoriesPreview = () => {
   const categoriesMap = useSelector(selectCurrentCategories)
 
   useEffect(async () => {
-    await apis.getSexes().then(sexes => console.log(sexes.data))
     console.log(categoriesMap)
   }, [])
 

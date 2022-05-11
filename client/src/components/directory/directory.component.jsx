@@ -1,11 +1,7 @@
 import React from 'react';
 import MenuItem from '../menu-item/menu-item.component';
-import Miyuki from '../../image/1.jpg';
-import Mai from '../../image/wallpaper.jpg';
-import Sarii from '../../image/3.jpg';
-import Rino from '../../image/4.jpg';
-import Yuki from '../../image/5.jpg';
-
+import Nike from '../../image/nike.jpeg';
+import Adidas from '../../image/adidas.jpeg';
 
 import './directory.styles.scss';
 
@@ -15,26 +11,18 @@ class Directory extends React.Component {
         this.state = {
             sections: [
                 {
-                    title: '白石麻衣',
-                    imageUrl: Mai,
+                    title: 'Nike',
+                    imageUrl: Nike,
                     id: 2,
                     linkUrl: 'sneakers/nike',
                 },
                 {
-                    title: '柏木由紀',
-                    imageUrl: Yuki,
+                    title: 'Adidas',
+                    imageUrl: Adidas,
                     id: 2,
                     linkUrl: 'sneakers/adidas',
 
-                },
-                // {
-                //     title: '渡辺美優紀',
-                //     imageUrl: Miyuki,
-                //     id: 2,
-                //     linkUrl: 'girls/渡辺美優紀',
-                //     video: yukicm
-
-                // }
+                }
             ]
         }
     }

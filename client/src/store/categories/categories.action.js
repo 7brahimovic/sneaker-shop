@@ -2,7 +2,7 @@ import { CATEGORIES_ACTION_TYPES } from './categories.types';
 import { createAction } from '../../utils/reducer/reducer.utils';
 import apis from '../../api/api';
 import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils';
-import GIRLS_DATA from '../../girls.data';
+import SNEAKERS_DATA from '../../sneakers.data';
 
 export const setCategoriesMap = (categoriesMap) =>
   createAction(CATEGORIES_ACTION_TYPES.SET_CATEGORIES_MAP, categoriesMap);
@@ -20,7 +20,7 @@ export const fetchCategoriesAsync = () => async(dispatch) => {
   dispatch(fetchCategoriesStart())
   try {
     // const categoriesArray = await apis.getShoplists();
-    const categoriesArray = GIRLS_DATA;
+    const categoriesArray = SNEAKERS_DATA;
     console.log(categoriesArray)
     const list = {
 
